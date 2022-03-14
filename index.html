@@ -1,10 +1,13 @@
 <script>
+   window.onerror = function(message, url, line, column, error) {
+        alert(message, url, line, column, error);
+      };
    (() => {
       const EXTENSION_ID = 'gleekbfjekiniecknbkamfmkohkpodhe';
 
       chrome.runtime.sendMessage(EXTENSION_ID, 'version', response => {
         if (!response) {
-          alert('No extension');
+          alert('extension');
           return;
         }
         alert('Extension version: ', response.version);
