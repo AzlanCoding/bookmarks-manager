@@ -9,11 +9,13 @@
 
 <script>
 //var myStringArray = ["http://google.com","http://bing.com"]; //Sample array, use yours
-let text = "https://classroom.google.com/u/0/h;https://chrome.google.com/webstore/detail/when-the-night-falls-100/caklinpoonbdpinpnfihgkjfmonpngnd;https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_str_link";
-const myStringArray = text.split(";");
+let urls = "https://classroom.google.com/u/0/h;https://chrome.google.com/webstore/detail/when-the-night-falls-100/caklinpoonbdpinpnfihgkjfmonpngnd;https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_str_link";
+let names = "classroom;webstore;w3schools";
+const myStringArray = urls.split(";");
+const namesArray = names.split(";");
 var result = ""
 for (var i = 0; i < myStringArray.length; i++) {
-    result = result + " <a href='" + myStringArray[i] + "'>"+ myStringArray[i] + "</a>" + "<p>\n<p>";
+    result = result + " <a href='" + myStringArray[i] + "'>"+ namesArray[i] + "</a>" + "<p>\n<p>";
 }
 document.getElementById('results').innerHTML = result
 </script>
