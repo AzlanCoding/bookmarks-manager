@@ -1,1 +1,22 @@
-<p>in progress...<p>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Bookmarks</h1>
+
+<p id="results"></p>
+
+
+<script>
+//var myStringArray = ["http://google.com","http://bing.com"]; //Sample array, use yours
+let text = "https://classroom.google.com/u/0/h;https://chrome.google.com/webstore/detail/when-the-night-falls-100/caklinpoonbdpinpnfihgkjfmonpngnd;https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_str_link";
+const myStringArray = text.split(";");
+var result = ""
+for (var i = 0; i < myStringArray.length; i++) {
+    result = result + " <a href='" + myStringArray[i] + "'>"+ myStringArray[i] + "</a>" + "<p>\n<p>";
+}
+document.getElementById('results').innerHTML = result
+</script>
+
+</body>
+</html>
