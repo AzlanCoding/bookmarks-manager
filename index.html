@@ -4,7 +4,6 @@
 
 <h1>Bookmarks</h1>
 
-<p id="results"></p>
 
 
 <script>
@@ -13,9 +12,14 @@ let urls = "https://classroom.google.com/u/0/h;https://chrome.google.com/webstor
 let names = "classroom;webstore;w3schools";
 const myStringArray = urls.split(";");
 const namesArray = names.split(";");
-var result = ""
+function edit(i){
+document.write('<p>edit<p>'+i);
+}
+function del(i){
+document.write('<p>del<p>'+i);
+}
 for (var i = 0; i < myStringArray.length; i++) {
-    result = result + " <a href='" + myStringArray[i] + "'>"+ namesArray[i] + "</a>" + "<p>\n<p>";
+    document.write("<a href='" + myStringArray[i] + "'>"+ namesArray[i] + "</a>" + "<button type='button' onclick='del("+i+")'>Delete</button><button type='button' onclick='edit("+i+")'>Edit</button>" + "<p>\n<p>");
 }
 document.getElementById('results').innerHTML = result
 </script>
