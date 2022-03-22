@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-
 <h1>Bookmarks</h1>
+
 
 
 
@@ -16,11 +16,26 @@ function edit(i){
 document.write('<p>edit<p>'+i);
 }
 function del(i){
-document.write('<p>del<p>'+i);
+if (i != 0){
+myStringArray.splice(i,i);
+namesArray.splice(i,i);
+}else {
+myStringArray.shift();
+namesArray.shift();
 }
+save();
+load();
+}
+function save(){
+urls = myStringArray.join();
+names = namesArray.join();
+}
+function load(){
 for (var i = 0; i < myStringArray.length; i++) {
     document.write("<a href='" + myStringArray[i] + "'>"+ namesArray[i] + "</a>" + "<button type='button' onclick='del("+i+")'>Delete</button><button type='button' onclick='edit("+i+")'>Edit</button>" + "<p>\n<p>");
 }
+}
+load();
 document.getElementById('results').innerHTML = result
 </script>
 
