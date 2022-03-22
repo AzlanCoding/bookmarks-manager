@@ -7,11 +7,13 @@
 
 
 <script>
-//var myStringArray = ["http://google.com","http://bing.com"]; //Sample array, use yours
+let urls = localStorage.getItem("urls");
+let names = localStorage.getItem("names");
 let urls = "https://classroom.google.com/u/0/h;https://chrome.google.com/webstore/detail/when-the-night-falls-100/caklinpoonbdpinpnfihgkjfmonpngnd;https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_str_link";
 let names = "classroom;webstore;w3schools";
 const myStringArray = urls.split(";");
 const namesArray = names.split(";");
+//var myStringArray = ["http://google.com","http://bing.com"]; //Sample array, use yours
 function edit(i){
 document.write('<p>edit<p>'+i);
 }
@@ -24,19 +26,25 @@ myStringArray.shift();
 namesArray.shift();
 }
 save();
+//location.reload();
 load();
 }
 function save(){
-urls = myStringArray.join();
-names = namesArray.join();
+urls = myStringArray.join(";");
+names = namesArray.join(";");
+localStorage.setItem("urls", urls);
+localStorage.setItem("names", names);
 }
 function load(){
+let urls = localStorage.getItem("urls");
+let names = localStorage.getItem("names");
+const myStringArray = urls.split(";");
+const namesArray = names.split(";");
 for (var i = 0; i < myStringArray.length; i++) {
     document.write("<a href='" + myStringArray[i] + "'>"+ namesArray[i] + "</a>" + "<button type='button' onclick='del("+i+")'>Delete</button><button type='button' onclick='edit("+i+")'>Edit</button>" + "<p>\n<p>");
 }
 }
 load();
-document.getElementById('results').innerHTML = result
 </script>
 
 </body>
